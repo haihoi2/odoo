@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+        <record id="view_readonly" model="ir.ui.view">
+        <field name="name">account.analytic.line.tree.inherit.setaccess</field>
+        <field name="model">account.analytic.line</field>
+        <field name="inherit_id" ref="hr_timesheet.hr_timesheet_line_tree" />
+        <field name="groups_id" eval="[(6, 0, [ref('hr_timesheet.group_hr_timesheet_approver'), ref('hr_timesheet.group_timesheet_manager')])]"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='evaluation_from_assigner']" position="attributes">
+                <attribute name="readonly">False</attribute>
+            </xpath>
+        </field>
+    </record>
+</odoo>

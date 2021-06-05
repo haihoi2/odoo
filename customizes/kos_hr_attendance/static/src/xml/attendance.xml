@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+	<t t-extend="HrAttendanceGreetingMessage">
+		<t t-jquery=".o_hr_attendance_kiosk_mode_container.o_home_menu_background" t-operation='replace'>
+			<div class="o_hr_attendance_kiosk_mode_container o_home_menu_background">
+	            <span class="o_hr_attendance_kiosk_backdrop"/>
+	            <div class="o_hr_attendance_clock text-center"/>
+	            <div class="o_hr_attendance_kiosk_mode">
+	                <t t-if="widget.attendance">
+	                    <div class="o_hr_attendance_user_badge o_home_menu_background">
+	                        <img class="img rounded-circle" t-attf-src="/web/image?model=hr.employee&amp;field=image_128&amp;id=#{widget.attendance.employee_id[0]}" t-att-title="widget.employee_name" t-att-alt="widget.employee_name"/>
+	                    </div>
+	                    <t t-if="widget.attendance.check_out">
+	                        <h1 class="mb0">Goodbye <t t-esc="widget.employee_name"/>!</h1>
+	                        <h2 class="o_hr_attendance_message_message mt4 mb24"/>
+	                        <div class="alert alert-info h2 mt0" role="status">
+	                            Checked out at <b><t t-esc="widget.attendance.check_out_time"/></b>
+	                            <br/><b><t t-esc="widget.hours_today"/></b>
+	                        </div>
+	                        <h3 class="o_hr_attendance_random_message mb24"/>
+	                        <div class="o_hr_attendance_warning_message mt24 alert alert-warning" style="display:none" role="alert"/>
+	                    </t>
+	                    <t t-else="">
+	                        <h1 class="mb0">Welcome <t t-esc="widget.employee_name"/>!</h1>
+	                        <h2 class="o_hr_attendance_message_message mt4 mb24"/>
+	                        <div class="alert alert-info h2 mt0" role="status">
+	                            Checked in at <b><t t-esc="widget.attendance.check_in_time"/></b>
+	                            <br/><b>From IP address: <t t-esc="widget.attendance.ip_address"/></b>
+	                        </div>
+	                        <h3 class="o_hr_attendance_random_message mb24"/>
+	                        <div class="o_hr_attendance_warning_message mt24 alert alert-warning" style="display:none" role="alert"/>
+	                    </t>
+	                    <button class="o_hr_attendance_button_dismiss btn btn-primary btn-lg">
+	                        <span class="text-capitalize" t-if="widget.attendance.check_out">Goodbye</span>
+	                        <span class="text-capitalize" t-else="">OK</span>
+	                    </button>
+	                </t>
+	                <t t-else="">
+	                    <div class="alert alert-warning" role="alert">Invalid request, please return to the main menu.</div>
+	                    <button class="o_hr_attendance_button_dismiss btn btn-secondary btn-lg">Go back</button>
+	                </t>
+	            </div>
+	    	</div>
+		</t>
+    </t>
+    
+    <t t-extend="HrAttendanceMyMainMenu">
+	    <t t-jquery="div.o_hr_attendance_kiosk_mode" t-operation='replace'>
+		<div class="o_hr_attendance_kiosk_mode">
+    	<!-- <t t-jquery="h3:first" t-operation='replace'> -->
+		<t t-set="checked_in" t-value="widget.employee.attendance_state=='checked_in'"/>
+                <t t-if="widget.employee">
+                    <div class="o_hr_attendance_user_badge o_home_menu_background">
+                        <img class="img rounded-circle" t-attf-src="/web/image?model=hr.employee&amp;field=image_128&amp;id=#{widget.employee.id}" t-att-title="widget.employee.name" t-att-alt="widget.employee.name"/>
+                    </div>
+    		<h3 class="mt8 mb24">
+				<t t-if="!checked_in">
+				    Welcome <strong><t t-esc="widget.employee.name"/></strong>! Have a productive working day!<br/>
+					<t t-if="widget.late_working">
+						<div id="hr_attendance_REASONcontainer">
+							<b style="text-align: center;color:#FF0000;">Enter reason for late checked-in</b><br/>
+							<div class="col-12 mb8 mt8">
+								<input class="o_hr_attendance_REASONbox text-center" type="text" maxlength="1000"/>
+							</div>
+						</div>
+					</t>
+					<h2>How are you today?</h2>
+				</t><t t-else="">How was your working day? </t>
+			</h3>
+			<div class="container-excellent-checkout" t-if="checked_in">
+				<a class="fa fa-7x o_hr_attendance_sign_in_out_icon fa-smile-o btn-secondary" t-if="checked_in" aria-label="Excellent" click_action="Sign out" title="Excellent"/>
+				<span class="text-of-excellent-checkout" t-if="checked_in">Excellent</span>
+			</div>
+			<div class="container-average-checkout" t-if="checked_in">
+				<a class="fa fa-7x o_hr_attendance_sign_in_out_icon fa-meh-o btn-secondary" t-if="checked_in" aria-label="Average" click_action="Sign out" title="Average"/>
+				<span class="text-of-average-checkout" t-if="checked_in">Average</span>
+			</div>
+			<div class="container-average-checkout" t-if="checked_in">
+				<a class="fa fa-7x o_hr_attendance_sign_in_out_icon fa-frown-o btn-secondary" t-if="checked_in" aria-label="Poor" click_action="Sign out" title="Poor"/>
+				<span class="text-of-poor-checkout" t-if="checked_in">Poor</span>
+			</div>
+			<br/>
+			<br/>
+			<div class="container-excellent-checkin" t-if="!checked_in">
+				<a class="fa fa-7x o_hr_attendance_sign_in_out_icon fa-smile-o btn-secondary" t-if="!checked_in" aria-label="Excellent" click_action="Sign in" title="Excellent"/>
+				<span class="text-of-excellent-checkin" t-if="!checked_in">Excellent</span>
+			</div>
+			<div class="container-average-checkin" t-if="!checked_in">
+				<a class="fa fa-7x o_hr_attendance_sign_in_out_icon fa-meh-o btn-secondary" t-if="!checked_in" aria-label="Average" click_action="Sign in" title="Average"/>
+				<span class="text-of-average-checkin" t-if="!checked_in">Average</span>
+			</div>
+			<div class="container-poor-checkin" t-if="!checked_in">
+			<a class="fa fa-7x o_hr_attendance_sign_in_out_icon fa-frown-o btn-secondary" t-if="!checked_in" aria-label="Poor" click_action="Sign in" title="Poor"/>
+				<span class="text-of-poor-checkin" t-if="!checked_in">Poor</span>
+			</div>
+			<h3 class="mb0 text-muted" id="clickToCheckin"><b t-if="!checked_in">Click to check in</b></h3>
+			<h3 class="mb0 text-muted" id="clickToCheckout"><b t-if="checked_in">Click to check out</b></h3>
+			<br/>
+			<br/>
+		
+    	<t t-jquery="h4:first" t-operation='replace'>
+    		<h4 class="mt2 mb0 text-muted" t-if="checked_in">Total time from last check-in: <span t-esc="widget.hours_today"/></h4>
+    	</t>
+		</t>
+		<t t-else="">
+			Warning : Your user should be linked to an employee to use attendance. Please contact your administrator.
+		</t>
+		</div>
+		</t>
+    </t>
+</templates>

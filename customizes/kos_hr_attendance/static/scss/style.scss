@@ -1,0 +1,81 @@
+header{
+    background-color: white;
+}
+.o_hr_attendance_kiosk_mode .o_hr_attendance_sign_in_out_icon:hover{
+    background-color: yellow;
+}
+
+.o_hr_attendance_kiosk_mode .o_hr_attendance_sign_in_out_icon
+{
+    display: block;
+    width: 130px;
+    height: 130px;
+    float: left;
+    margin: auto;
+    margin-right: 10px;
+    text-align: center;
+}
+.fa-smile-o:before, .fa-meh-o:before, .fa-frown-o:before
+{
+    margin-left: -12px;
+}
+.container-excellent-checkin, .container-average-checkin, .container-poor-checkin,.container-excellent-checkout, .container-average-checkout, .container-poor-checkout
+{
+    position: relative;
+}
+.text-of-excellent-checkin,.text-of-average-checkin, .text-of-poor-checkin, .text-of-excellent-checkout,.text-of-average-checkout, .text-of-poor-checkout
+{
+    position: absolute;
+    bottom: -135px;
+}
+.text-of-excellent-checkin, .text-of-excellent-checkout
+{
+    left: 40px;
+}
+.text-of-average-checkin, .text-of-average-checkout
+{
+    left: 180px;
+}
+.text-of-poor-checkin, .text-of-poor-checkout
+{
+    left: 330px;
+}
+#clickToCheckin
+{
+    margin-top: 140px !important;
+}
+#clickToCheckout
+{
+    margin-top: -40px !important;
+}
+@media only screen and (max-width: 600px) {
+    .text-of-excellent-checkin,.text-of-average-checkin, .text-of-poor-checkin, .text-of-excellent-checkout,.text-of-average-checkout, .text-of-poor-checkout
+    {
+        position: absolute;
+        bottom: -100px;
+    }
+    .text-of-excellent-checkin, .text-of-excellent-checkout {
+        left: 25px;
+    }
+    .text-of-average-checkin, .text-of-average-checkout {
+        left: 135px;
+    }
+    .text-of-poor-checkin, .text-of-poor-checkout {
+        left: 250px;
+    }
+    .o_hr_attendance_kiosk_mode .o_hr_attendance_sign_in_out_icon {
+        display: block;
+        width: 90px;
+        height: 100px;
+        float: left;
+        /* margin: auto; */
+        margin-right: 10px;
+        text-align: center;
+        margin-left: 5px;
+        margin-top: -20px;
+        padding: 5px;
+    }
+    .fa-smile-o:before, .fa-meh-o:before, .fa-frown-o:before {
+        margin-left: unset;
+    }
+}

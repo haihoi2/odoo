@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!-- <record id="mail.menu_root_discuss" model="ir.ui.menu">
+        <field name="active" eval="False"/>
+    </record>
+    <record id="calendar.mail_menu_calendar" model="ir.ui.menu">
+        <field name="active" eval="False"/>
+    </record>
+    <record id="contacts.menu_contacts" model="ir.ui.menu">
+        <field name="active" eval="False"/>
+    </record>
+    <record id="crm.crm_menu_root" model="ir.ui.menu">
+        <field name="active" eval="False"/>
+    </record>
+    <record id="website_slides.website_slides_menu_root" model="ir.ui.menu">
+        <field name="active" eval="False"/>
+    </record>
+    <record id="utm.menu_link_tracker_root" model="ir.ui.menu">
+        <field name="active" eval="False"/>
+    </record>
+    <record id="account.menu_finance" model="ir.ui.menu">
+        <field name="active" eval="False"/>
+    </record>
+    <record id="project.menu_main_pm" model="ir.ui.menu">-->
+<!--        <field name="active" eval="False"/>-->
+<!--    </record>
+    <record id="hr_holidays.menu_hr_holidays_root" model="ir.ui.menu">
+        <field name="active" eval="False"/>
+    </record>
+    <record id="hr_timesheet.timesheet_menu_root" model="ir.ui.menu">-->
+<!--        <field name="active" eval="False"/>-->
+<!--    </record>
+    <record id="website.menu_dashboard" model="ir.ui.menu">
+        <field name="active" eval="False"/>
+    </record>
+    <record id="website.website_visitor_menu" model="ir.ui.menu">
+        <field name="active" eval="False"/>
+    </record>
+    <record id="website.menu_website_global_configuration" model="ir.ui.menu">
+        <field name="active" eval="False"/>
+    </record> -->
+</odoo>

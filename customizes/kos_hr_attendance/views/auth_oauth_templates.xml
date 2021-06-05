@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+     <template id="kos_hr_attendance.providers" inherit_id="auth_oauth.providers" name="KOS OAuth Providers">
+         <xpath expr="//em[contains(@t-attf-class, 'd-block text-center')]" position="replace">
+         	<em t-attf-class="d-block text-center my-#{len(providers) if len(providers) &lt; 3 else 3}">- For all members -</em>
+         </xpath>
+     </template>
+</odoo>

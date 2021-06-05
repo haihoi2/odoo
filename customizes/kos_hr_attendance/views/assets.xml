@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <template
+        id="assets_backend"
+        name="kos_hr_attendance assets"
+        inherit_id="web.assets_backend">
+        <xpath expr="." position="inside">
+            <script type="text/javascript" src="/kos_hr_attendance/static/src/js/attendance_reason.js"/>
+        </xpath>
+    </template>
+    <template id="assets_backend_2" name="kos_hr_attendance assets" inherit_id="web.assets_backend">
+        <xpath expr="link[last()]" position="after">
+            <link rel="stylesheet" type="text/scss" href="/kos_hr_attendance/static/scss/style.scss"/>
+        </xpath>
+    </template>
+</odoo>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<template id="kos_hr_attendance.frontend_layout" name="KOS layout" inherit_id="website.layout">
+    	<xpath expr="//t[@t-foreach='website.menu_id.child_id']" position="replace"/>
+    	<!-- <xpath expr="//header//ul[@id='top_menu']" position="inside">
+	       <li class="nav-item divider" t-ignore="true" t-if="user_id._is_cheked_in()">
+             <li class="nav-item">
+	             <a href="/web#action=hr_attendance.hr_attendance_action_my_attendances" class="nav-link"
+	                style="background-color:#56b3b5;color:#FFFFFF;font-weight:bold;text-decoration:none;">
+	                	Check-out
+	             </a>
+           	 </li>
+           </li>
+	    </xpath> -->
+    </template>
+</odoo>

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Views -->
+    <record id="view_attendance_tree_inherit" model="ir.ui.view">
+        <field name="name">view.attendance.tree.inherit</field>
+        <field name="model">hr.attendance</field>
+        <field name="inherit_id" ref="hr_attendance.view_attendance_tree" />
+        <field name="arch" type="xml">
+        	<field name="check_out" position="after">
+        		<field name="ip_address"/>
+        		<field name="ip_address_out"/>
+        		<field name="reason_late"/>
+                <field name="checkin_status"/>
+                <field name="checkout_status"/>
+                <field name="location_in" />
+                <field name="location_out"/>
+        	</field>
+        	<xpath expr="//tree" position="attributes">
+                <attribute name="create">false</attribute>
+                <attribute name="edit">false</attribute>
+            </xpath>
+        </field>
+    </record>
+    
+    <record id="hr_attendance_view_form_inherit" model="ir.ui.view">
+        <field name="name">hr.attendance.form.inherit</field>
+        <field name="model">hr.attendance</field>
+        <field name="inherit_id" ref="hr_attendance.hr_attendance_view_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//form" position="attributes">
+                <attribute name="create">false</attribute>
+                <attribute name="edit">false</attribute>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="hr_attendance_kanban_view_form_inherit" model="ir.ui.view">
+        <field name="name">hr.attendance.kanban.form.inherit</field>
+        <field name="model">hr.attendance</field>
+        <field name="inherit_id" ref="hr_attendance.view_hr_attendance_kanban" />
+        <field name="arch" type="xml">
+            <xpath expr="//kanban" position="attributes">
+                <attribute name="create">false</attribute>
+            </xpath>
+        </field>
+    </record>
+    
+    <record id="hr_attendance_view_form_inherit_admin" model="ir.ui.view">
+        <field name="name">hr.attendance.form.inherit.admin</field>
+        <field name="model">hr.attendance</field>
+        <field name="inherit_id" ref="kos_hr_attendance.hr_attendance_view_form_inherit" />
+        <field name="groups_id" eval="[(4, ref('hr_attendance.group_hr_attendance_manager'))]"/>
+        <field name="arch" type="xml">
+            <xpath expr="//form" position="attributes">
+                <attribute name="edit">true</attribute>
+            </xpath>
+        </field>
+    </record>
+    <!-- Menus -->
+    <record id="hr_attendance.menu_hr_attendance_manage_attendances" model="ir.ui.menu">
+         <field eval="[(4,ref('hr_attendance.group_hr_attendance'))]" name="groups_id"/>
+     </record>
+
+     <record id="hr_attendance.menu_hr_attendance_view_attendances" model="ir.ui.menu">
+         <field eval="[(4,ref('hr_attendance.group_hr_attendance'))]" name="groups_id"/>
+     </record>
+</odoo>

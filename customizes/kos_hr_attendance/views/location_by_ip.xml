@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+        <!-- window action -->
+        <!--
+            The following tag is an action definition for a "window action",
+            that is an action opening a view or a set of views
+        -->
+        <record model="ir.actions.act_window" id="hr_location_action">
+            <field name="name">Locations</field>
+            <field name="res_model">hr.location</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">Create the first location
+                </p>
+            </field>
+        </record>
+
+        <record id="hr_location_view_form" model="ir.ui.view">
+        <field name="name">hr.location.form</field>
+        <field name="model">hr.location</field>
+        <field name="arch" type="xml">
+            <form string="Location Form">
+                <sheet>
+                    <group>
+                        <field name="ip_address"/>
+                        <field name="location"/>
+                        <field name="note_text"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_location_tree" model="ir.ui.view">
+        <field name="name">hr.location.tree</field>
+        <field name="model">hr.location</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="ip_address"/>
+                <field name="location"/>
+                <field name="note_text"/>
+            </tree>
+        </field>
+    </record>
+
+        <!-- top level menu: no parent -->
+        <menuitem id="menu_location" name="Location" parent="hr_attendance.menu_hr_attendance_root" sequence="35" groups="hr_attendance.group_hr_attendance_user" action="hr_location_action"/>
+        <!-- Full id location:
+             action="openacademy.course_list_action"
+             It is not required when it is the same module -->
+
+</odoo>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<template id="kos_hr_attendance.login" inherit_id="web.login" name="KOS Login buttons">
+        <xpath expr="//div[hasclass('field-db')]" position="before">
+        	<div class="o_login_auth" position="move"/>
+        	<em t-attf-class="d-block text-center my-#{len(providers) if len(providers) &lt; 3 else 3}">- Only for Administrators -</em>
+        </xpath>
+    </template>
+</odoo>
